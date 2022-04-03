@@ -1,24 +1,6 @@
-<!--
- * @Author       : Justin.zm 草根之明
- * @Date         : 2022-04-03 10:13:21
- * @LastEditTime : 2022-04-03 14:50:30
- * @FilePath     : /exercise_threejs/exercises/02_hello_three.html
- * @Email        : 3907721@qq.com
- * @Description  : 
--->
-<!DOCTYPE html>
-<html lang="en">
+![image-20220403111707263](http://img.9lake.com/uPic/image-20220403111707263.png)
 
-<head>
-	<meta charset="UTF-8">
-	<title>Hello Three.js</title>
-</head>
-
-<body>
-  
-</body>
-<script src="./utils/three_r128.min.js"></script>
-<script>
+```js
   let scene, camera, pointLight, cube, renderer  
 
   function init(){
@@ -71,9 +53,9 @@
 
   // 渲染场景
   function render(){
-    animate();
-    requestAnimationFrame(render);
-    renderer.render(scene, camera);
+    renderer.render(scene, camera); //执行渲染操作
+    animate();	//执行动画
+    requestAnimationFrame(render);	//请求再次执行渲染函数render
   }
 
   // 监听屏幕宽高变化来做简单 RWD 设定
@@ -85,6 +67,5 @@
   
   init();
   render();
-  
-</script>
-</html>
+```
+
