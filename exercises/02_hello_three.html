@@ -1,7 +1,7 @@
 <!--
  * @Author       : Justin.zm 草根之明
  * @Date         : 2022-04-03 10:13:21
- * @LastEditTime : 2022-04-03 10:25:03
+ * @LastEditTime : 2022-04-03 11:00:01
  * @FilePath     : /exercise_threejs/exercises/02_hello_three.html
  * @Email        : 3907721@qq.com
  * @Description  : 
@@ -15,13 +15,50 @@
 </head>
 
 <body>
-	abc
   
 </body>
 <script src="./js/three_r128.min.js"></script>
 <script>
-  // 建立场景
+  let scene, camera, pointLight, cube  
+
+  // 01 建立场景
   scene = new THREE.Scene();
+
+  // 02 建立相机 透视投影相机（PerspectiveCamera）
+  // 视角（fov, field of view）：又称为视野、视场，指的是我们能从画面上看到的视野范围，一般在游戏中会设定在60 ~ 90 度。
+  // 画面宽高比（aspect）：渲染结果的画面比例，一般都是使用window.innerWidth / window.innerHeight。
+  // 近面距离（near）：从距离相机多近的地方开始渲染，一般推荐使用0.1。
+  // 远面距离（far）：相机能看得多远，一般推荐使用1000，可视需求调整，设置过大会影响效能。
+  camera = new THREE.PerspectiveCamera(
+    45,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    100
+  );
+  camera.position.set(10,10,10);  // 相机位置
+  camera.lookAt(scene.position);  // 相机焦点
+
+  // 03 建立光源
+  pointLight = new THREE.PointLight(0xffffff);
+  pointLight.position.set(10,10,-10);
+  scene.add(pointLight);
+
+  // 04 建立物体
+  const geometry = new THREE.BoxGeometry(1,1,1);  // 建立几何体
+  const material = new THREE.MeshPhongMaterial({
+    color: 0x0000ff
+  }); // 材质
+  cube = new THREE.Mesh()
+  
+  // 建立渲染器
+  renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);  // 场景大小
+  renderer.setClearColor(0xeeeeee, 1.0);  // 预设背景颜色
+  renderer.shadowMap.enable = true;   // 阴影效果
+  
+  // 将渲染器的DOM绑到网页上
+  document.body.appendChild(renderer.domElement);
+
   
 </script>
 </html>
