@@ -2,7 +2,7 @@
  * @Author       : Justin.zm 草根之明
  * @Date         : 2022-04-03 13:36:26
  * @LastEditTime : 2022-04-03 15:36:34
- * @FilePath     : /exercise_threejs/exercises/js/05material.js
+ * @FilePath     : /exercise_threejs/exercises/js/06light.js
  * @Email        : 3907721@qq.com
  * @Description  : 
  */
